@@ -51,3 +51,17 @@ console.log(createEmployee(500));
 console.log(createEmployee(100));
 console.log(createEmployee("200"));
 console.log(createEmployee(1000));
+
+const isDirector = (employee: Teacher | Director): employee is Director => {
+    return (employee instanceof Director);
+}
+
+const executeWork = (employee: Teacher | Director): string => {
+    if (isDirector(employee)) {
+        return employee.workDirectorTasks();
+    }
+    return employee.workTeacherTasks();
+}
+
+console.log(executeWork(createEmployee(200)));
+console.log(executeWork(createEmployee(1000)));
