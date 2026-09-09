@@ -36,3 +36,14 @@ const director1: Teacher = {
 };
 
 console.log(director1);
+
+interface printTeacherFunction {
+    (firstName: string, lastName: string): string;
+}
+
+const printTeacher: printTeacherFunction = ((firstName: string, lastName: string): string => {
+    const f_name: string = firstName.slice(0, 1);
+    return (`${f_name}. ${lastName}`);
+})
+
+console.log(printTeacher(teacher1.firstName, teacher1.lastName));
